@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  frontend:
+    build:
+      context: ./Frontend
+    ports:
+      - "3000:80"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./Backend
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+    environment:
+      - MONGO_URI=mongodb://database:27017/todo-db
+    depends_on:
+      - database
+
+  database:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+    volumes:
+      - mongo-data:/data/db
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+
