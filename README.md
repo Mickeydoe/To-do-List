@@ -1,8 +1,3 @@
-# To-do-List
-Here’s a comprehensive **README.md** you can use for your GitHub repository:
-
----
-
 # To-do List Application
 
 A **full-stack to-do list application** built to demonstrate modular architecture, containerization, and seamless integration between frontend, backend, and database components. The app allows users to manage their tasks efficiently with CRUD operations.
